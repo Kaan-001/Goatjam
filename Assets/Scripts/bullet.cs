@@ -30,8 +30,9 @@ public class bullet : MonoBehaviour
             {
                 enemyHealth.TakeDamage(damageAmount);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     
     }
 

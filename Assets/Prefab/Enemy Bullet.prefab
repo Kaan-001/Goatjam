@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4975004545638620071}
   - component: {fileID: 6085022197165966255}
   - component: {fileID: 4461451166694363961}
-  - component: {fileID: 9082644335919996638}
   - component: {fileID: 1675269215172105673}
   - component: {fileID: 8116294153993037756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,20 +114,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9082644335919996638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696623136724572634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb852dc9652eec24bbb76b74fcf7c496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1675269215172105673
 MonoBehaviour:
   m_ObjectHideFlags: 0

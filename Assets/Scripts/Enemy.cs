@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Transform firepoint;
     private float nextFireTime = 0f; // Sonraki ateş zamanı
     
+    
     void Update()
     {
         // Oyuncuyla düşman arasındaki mesafeyi hesapla

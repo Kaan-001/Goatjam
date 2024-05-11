@@ -6377,7 +6377,7 @@ Animator:
   m_GameObject: {fileID: 1360699340}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 774e2a2ecc869da4fb8be5047a756969, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7824b2e73c0c19d40908a7946c00d552, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7007,6 +7007,7 @@ MonoBehaviour:
   patrolRange: 10
   minWaitTime: 2
   maxWaitTime: 4
+  alien: {fileID: 1360699340}
 --- !u!1 &1829326976
 GameObject:
   m_ObjectHideFlags: 0

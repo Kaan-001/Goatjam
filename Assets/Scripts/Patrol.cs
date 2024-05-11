@@ -14,6 +14,7 @@ public class Patrol : MonoBehaviour
     private int lastPatrolIndex = -1; // Son seçilen patrol noktasının index'i
     private bool isWaiting = false; // Bekleme durumunu kontrol etmek için flag
     public GameObject alien;
+    public ParticleSystem particle;
     void Start()
     {
         // İlk başta bir patrol noktası seç
@@ -26,12 +27,14 @@ public class Patrol : MonoBehaviour
         if (!isWaiting && currentPatrolPoint != null)
         {
             // Hedef patrol noktasına doğru ilerle
+            particle.Play();
               alien.GetComponent<Animator>().Play("runuzayli");
             MoveToPatrolPoint(currentPatrolPoint.position);
 
             // Eğer düşman hedef patrol noktasına ulaştıysa
             if (Vector3.Distance(transform.position, currentPatrolPoint.position) < 0.1f)
             {
+                particle.Stop();
                 alien.GetComponent<Animator>().Play("idleuzayli");
                 // Bekleme süresini başlat
                 float waitTime = Random.Range(minWaitTime, maxWaitTime);

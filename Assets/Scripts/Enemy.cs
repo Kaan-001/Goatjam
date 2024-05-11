@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float bulletSpeed = 10f; // Ateş mermisinin hızı
     public Transform firepoint;
     private float nextFireTime = 0f; // Sonraki ateş zamanı
-
+    
     void Update()
     {
         // Oyuncuyla düşman arasındaki mesafeyi hesapla
@@ -19,9 +19,23 @@ public class Enemy : MonoBehaviour
         if (distanceToPlayer2 <= attackRange)
         {
             Vector2 lookDir = player.transform.position - transform.position;
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 180f;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg ;
+        
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                if(angle>-180 && angle<-90)
+         {
+            this.transform.localScale=new Vector2(1f,-1f);
+           
+         }
+         else if(angle>90 && angle<180)
+         {
+              this.transform.localScale=new Vector2(1f,-1f);
+             
+         }
+         else{   this.transform.localScale=new Vector2(1f,1f); }
+    
         }   
+        
 
         // Eğer oyuncu varsa ve düşmanın ateş hızı kadar zaman geçtiyse
         if (player != null && Time.time >= nextFireTime)
@@ -46,6 +60,6 @@ public class Enemy : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         // Kurşunun ileri yöne doğru hızlandırılması
-        rb.velocity = firepoint.right * -bulletSpeed;
+        rb.velocity = firepoint.right * bulletSpeed;
     }
 }

@@ -7,6 +7,7 @@ public class WeaponCont : MonoBehaviour
     public GameObject bulletPrefab; 
     public Transform firePoint; 
     public float bulletSpeed = 20f;
+    public float deflectionRate;
 
     void Update()
     {
@@ -18,7 +19,7 @@ public class WeaponCont : MonoBehaviour
 
     void Shoot()
     {
-        // Kurşunun oluşturulması
+        // Kurşunun yaratma
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
@@ -26,7 +27,7 @@ public class WeaponCont : MonoBehaviour
         rb.velocity = firePoint.right * bulletSpeed;
 
         // Rasgele hata payı ekleme
-        float errorAngle = Random.Range(-15f, 15f);
+        float errorAngle = Random.Range(-deflectionRate, deflectionRate);
         rb.velocity = Quaternion.Euler(0, 0, errorAngle) * rb.velocity;
     }
 }

@@ -6,7 +6,10 @@ public class bullet : MonoBehaviour
 {
     public Transform target; 
     public Vector3 offset; 
-
+    void Start()
+    {
+        Destroy(this.gameObject,3f);
+    }
     void Update()
     {
         if (target != null)

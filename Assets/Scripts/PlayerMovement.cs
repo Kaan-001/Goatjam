@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Hareket
+    public ParticleSystem particle;
     public float moveSpeed = 4f;
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed = 13f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
-    private bool isDashing = false;
+    private bool isDashing = false,playx;
     private float dashTimer = 0f;
     private float dashCooldownTimer = 0f;
 
@@ -41,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+            if(movement.x!=0||movement.y!=0 && playx){particle.Play(); playx=false;}
+            else if(movement.x==0||movement.y==0 && !playx){particle.Stop(); playx=true;}
             if(WeaponCont.neryebakiyor==0) this.gameObject.GetComponent<SpriteRenderer>().flipX=false;
             else if(WeaponCont.neryebakiyor==1) this.gameObject.GetComponent<SpriteRenderer>().flipX=true;
             if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0)

@@ -47,10 +47,6 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
-
-        Vector2 lookDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     void FixedUpdate()

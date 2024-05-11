@@ -41,7 +41,8 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-
+            if(WeaponCont.neryebakiyor==0) this.gameObject.GetComponent<SpriteRenderer>().flipX=false;
+            else if(WeaponCont.neryebakiyor==1) this.gameObject.GetComponent<SpriteRenderer>().flipX=true;
             if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0)
             {
                 StartCoroutine(Dash());

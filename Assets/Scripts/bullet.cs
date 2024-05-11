@@ -19,4 +19,19 @@ public class bullet : MonoBehaviour
             transform.LookAt(target.position);
         }
     }
+
+    public float damageAmount = 50f;
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damageAmount);
+            }
+        }
+        Destroy(gameObject);
+    }
+
 }

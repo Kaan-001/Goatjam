@@ -6,18 +6,22 @@ public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab; // Düşman prefabı
     public Transform[] spawnPoints; // Spawn noktalarının transform bilgileri
-    public float spawnInterval = 2f; // Spawn aralığı (saniye)
+     // Spawn aralığı (saniye)
     public static int SpawnCount=0;
 
     void Start()
     {
         // Belirli aralıklarla SpawnEnemies fonksiyonunu çağır
-        InvokeRepeating("SpawnEnemies", 0f, spawnInterval);
+        StartCoroutine(SpawnEnemies());
+        
     }
 
-    void SpawnEnemies()
+     IEnumerator SpawnEnemies()
     {
         // Rastgele bir spawn noktası seç
+        while(true)
+        {
+            yield return new WaitForSeconds(2f);
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform spawnPoint = spawnPoints[randomIndex];
 
@@ -27,6 +31,8 @@ public class Spawner : MonoBehaviour
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         SpawnCount+=1;
         }
+        }
+        
        
     }
 }

@@ -21,12 +21,12 @@ public class Spawner : MonoBehaviour
         // Rastgele bir spawn noktası seç
         while(true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         int randomIndex = Random.Range(0, spawnPoints.Length);
         Transform spawnPoint = spawnPoints[randomIndex];
 
         // Seçilen spawn noktasında düşman objesini oluştur
-        if(SpawnCount<6)
+        if(SpawnCount<10)
         {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         SpawnCount+=1;

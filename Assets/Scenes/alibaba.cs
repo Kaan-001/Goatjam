@@ -27,15 +27,5 @@ public class alibaba : MonoBehaviour
 
         SceneManager.LoadScene(3);
     }
-    void Update()
-    {
-        if(player!=null)
-        {
-             if(player.currentHealth<=0)
-        {
-            playerdead();
-        }
-        }
-       
-    }
+    
 }

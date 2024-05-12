@@ -14,6 +14,6 @@ public class Spritetakip : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-     this.gameObject.transform.position=enemy.transform.position+new Vector3(0,0.3f,0);
+        this.gameObject.transform.position=enemy.transform.position+new Vector3(0,0.3f,0);
     }
 }

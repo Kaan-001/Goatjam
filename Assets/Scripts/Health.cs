@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
-    public Slider healthSlider; 
-
+    public Slider healthSlider;
+    public GameObject GameOverPanel;
 
     void Start()
     {
@@ -35,7 +35,8 @@ public class Health : MonoBehaviour
     void Die()
     {
         Debug.Log("ÖLDÜ");
-        //GameOverPanel.SetActive = true;
-        //Time.timeScale = 0;
+        Destroy(gameObject,0.1f);
+        GameOverPanel.SetActive(true);
+        
     }
 }

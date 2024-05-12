@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-
+using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     //Hareket
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        this.transform.DOScale(1.2f,0.5f).SetLoops(-1,LoopType.Yoyo);
         animator=GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }

@@ -13,4 +13,8 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+     public void ReStart2()
+    {
+        SceneManager.LoadScene(3);
+    }
 }

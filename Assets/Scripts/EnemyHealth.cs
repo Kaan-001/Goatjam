@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
+    public ParticleSystem explosion;
     private float currentHealth;
 
     void Start()
@@ -20,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(gameObject.GetComponent<Patrol>().alien.gameObject);
+            ParticleSystem a = Instantiate(explosion,this.transform.position,Quaternion.identity);
+            a.Play();
         }
     }
 }

@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
+    
     public ParticleSystem explosion;
     private float currentHealth;
 
     void Start()
     {
+  
         currentHealth = maxHealth;
     }
 
@@ -25,9 +27,11 @@ public class EnemyHealth : MonoBehaviour
             Spawner.SpawnCount-=1;
             ParticleSystem a = Instantiate(explosion,this.transform.position,Quaternion.identity);
             a.Play();
+             PlayerMovement.ScoreC+=1;
         }
-        PlayerMovement.ScoreC+=1;
-        if( PlayerMovement.ScoreC>=50)
+       
+      
+        if( PlayerMovement.ScoreC>=30)
         {
             //sahne değişimi
             SceneManager.LoadScene(1);

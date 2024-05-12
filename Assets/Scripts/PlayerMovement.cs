@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using DG.Tweening;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     //Hareket
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private float dashCooldownTimer = 0f;
     public Animator animator;
+    public Text text;
 
     void Start()
     {
@@ -30,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     { 
-        
+         if(text!=null) text.text = PlayerMovement.ScoreC+"/30";
         if (dashCooldownTimer > 0)
         {
             dashCooldownTimer -= Time.deltaTime;

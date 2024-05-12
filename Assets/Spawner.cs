@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[randomIndex];
 
         // Seçilen spawn noktasında düşman objesini oluştur
-        if(SpawnCount<10)
+        if(SpawnCount<6)
         {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         SpawnCount+=1;

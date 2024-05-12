@@ -21,6 +21,7 @@ public class bullet : MonoBehaviour
     }
 
     public float damageAmount = 50f;
+    public float bossdamageAmount = 5f;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -32,8 +33,17 @@ public class bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        
-    
+
+        if (collision.CompareTag("Boss"))
+        {
+            BossHealth bosshealth = collision.GetComponent<BossHealth>();
+            if (bosshealth != null)
+            {
+                bosshealth.TakeDamage(bossdamageAmount);
+            }
+            Destroy(gameObject);
+        }
+
     }
 
 }

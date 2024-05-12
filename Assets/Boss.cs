@@ -12,7 +12,7 @@ public class Boss : MonoBehaviour
     public Transform player; // Player'ın konumunu almak için kullanacağımız Transform bileşeni
     public GameObject bulletPrefab; // Ateş mermisinin prefabı
     public float fireRate = 1f; // Ateş hızı (saniye cinsinden)
-    public float bulletSpeed = 10f; // Ateş mermisinin hızı
+    public float bulletSpeed; // Ateş mermisinin hızı
     public Transform firepoint;
 
     public Transform[] firePoints; // Ateş edilecek noktaların transform bilgileri

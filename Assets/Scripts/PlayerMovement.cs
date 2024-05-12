@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+
 public class PlayerMovement : MonoBehaviour
 {
     //Hareket
@@ -73,6 +76,15 @@ public class PlayerMovement : MonoBehaviour
         dashCooldownTimer = dashCooldown;
 
         yield return null;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Furniture"))
+        {
+            SceneManager.LoadScene("Outro");
+        }
+
     }
 
 }

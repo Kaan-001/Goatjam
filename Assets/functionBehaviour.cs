@@ -18,7 +18,6 @@ public class functionBehaviour : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Boss.anim.SetBool("Fonk1", false);
         Boss.CanChoose = true;
     }
 

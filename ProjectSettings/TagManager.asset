@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - PatrolPoint
   - Boss
+  - Finisher
+  - Furniture
   layers:
   - Default
   - TransparentFX

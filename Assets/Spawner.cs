@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
      // Spawn aralığı (saniye)
     public static int SpawnCount=0;
 
-    void Start()
+    void Awake()
     {
         // Belirli aralıklarla SpawnEnemies fonksiyonunu çağır
         StartCoroutine(SpawnEnemies());

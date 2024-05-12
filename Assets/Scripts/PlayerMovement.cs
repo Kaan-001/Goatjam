@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Furniture"))
         {
-            SceneManager.LoadScene("Outro");
+            SceneManager.LoadScene(4);
         }
 
     }

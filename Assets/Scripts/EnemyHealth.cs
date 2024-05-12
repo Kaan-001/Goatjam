@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
         if( PlayerMovement.ScoreC>=30)
         {
             //sahne değişimi
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
 
         }
     }

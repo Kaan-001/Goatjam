@@ -9,15 +9,23 @@ public class Patrol : MonoBehaviour
     public float patrolRange = 10f; // Patrol menzili
     public float minWaitTime = 2f; // Minimum bekleme süresi
     public float maxWaitTime = 4f; // Maksimum bekleme süresi
+    public GameObject alien;
+    public ParticleSystem particle;
 
     private Transform currentPatrolPoint; // Şu anki patrol noktası
     private int lastPatrolIndex = -1; // Son seçilen patrol noktasının index'i
     private bool isWaiting = false; // Bekleme durumunu kontrol etmek için flag
-    public GameObject alien;
-    public ParticleSystem particle;
+
     void Start()
     {
-        // İlk başta bir patrol noktası seç
+        // Patrol noktalarını etiketlerine göre bul ve diziye ata
+        GameObject[] patrolPointObjects = GameObject.FindGameObjectsWithTag("PatrolPoint");
+        patrolPoints = new Transform[patrolPointObjects.Length];
+        for (int i = 0; i < patrolPointObjects.Length; i++)
+        {
+            patrolPoints[i] = patrolPointObjects[i].transform;
+        }
+
         SelectPatrolPoint();
     }
 
@@ -28,7 +36,7 @@ public class Patrol : MonoBehaviour
         {
             // Hedef patrol noktasına doğru ilerle
             particle.Play();
-              alien.GetComponent<Animator>().Play("runuzayli");
+            alien.GetComponent<Animator>().Play("runuzayli");
             MoveToPatrolPoint(currentPatrolPoint.position);
 
             // Eğer düşman hedef patrol noktasına ulaştıysa

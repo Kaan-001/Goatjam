@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     //Dash Sistemi
+    public static int ScoreC=0;
     public float dashSpeed = 13f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     { 
+        
         if (dashCooldownTimer > 0)
         {
             dashCooldownTimer -= Time.deltaTime;

@@ -281,13 +281,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanChoose: 1
+  interval: 2
   anim: {fileID: 281854257}
   player: {fileID: 1908100242}
   bulletPrefab: {fileID: 696623136724572634, guid: 098c63d22e5aa7c4daf8232284ed7cde, type: 3}
-  fireRate: 1
-  bulletSpeed: 25
+  fireRate: 2
+  bulletSpeed: 20
   firepoint: {fileID: 1831151438}
   firePoints: []
+  angles:
+  - 0
+  - 45
+  - 90
+  - 135
+  - 180
+  - 225
+  - 270
+  - 315
+  once: 0
 --- !u!61 &281854261
 BoxCollider2D:
   m_ObjectHideFlags: 0

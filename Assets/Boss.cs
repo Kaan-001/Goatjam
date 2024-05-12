@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
     public bool CanChoose = true;
     float timer = 0f;
-    float interval = 3f;
+    public float interval = 3f;
     public Animator anim;
 
     public Transform player; // Player'ın konumunu almak için kullanacağımız Transform bileşeni
@@ -54,6 +54,7 @@ public class Boss : MonoBehaviour
         if (Time.time >= nextFireTime)
         {
             // Player'ın konumuna doğru ateş et
+            Debug.Log("skill1");
             Vector3 shootDirection = (player.position - transform.position).normalized;
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             firepoint.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -66,10 +67,26 @@ public class Boss : MonoBehaviour
             anim.SetBool("Fonk1", false);
         }
     }
-
+    public  float[] angles;
+    public bool once;
     public void Function2()
     {
-        Debug.Log("Fonk2 çalıştı");
-        anim.SetBool("Fonk2", false);
+           Debug.Log("skill2");
+            if (Time.time >= nextFireTime)
+        {
+              for(int i=0;i<8;i++)
+           {
+             firepoint.rotation = Quaternion.Euler(0f, 0f, angles[i]);
+             GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.velocity = firepoint.right * bulletSpeed;
+           }
+          nextFireTime = Time.time + 1f / fireRate;
+          Debug.Log("Fonk2 çalıştı");
+            anim.SetBool("Fonk2", false);
+        }
+
+         
+        
     }
 }
